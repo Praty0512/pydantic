@@ -289,9 +289,6 @@ class FieldInfo(_repr.Representation):
             attributes_set['default_factory'] = default_factory
         self.default_factory = default_factory
 
-        if default is not PydanticUndefined and default_factory is not None:
-            raise TypeError('cannot specify both default and default_factory')
-
         if alias is _Unset:
             alias = None
         else:
