@@ -742,7 +742,7 @@ class WebsocketUrl(AnyUrl):
     * Max length 2083
     """
 
-    _constraints = UrlConstraints(max_length=2083, allowed_schemes=['ws', 'wss'])
+    _constraints = UrlConstraints(max_length=8192, allowed_schemes=['ws', 'wss'])
 
 
 class FileUrl(AnyUrl):
