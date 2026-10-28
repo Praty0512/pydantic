@@ -473,3 +473,10 @@ def test_default_factory_without_validated_data_unsupported() -> None:
 )
 def test_privateattr_repr(private_attr: ModelPrivateAttr, result: str) -> None:
     assert repr(private_attr) == result
+
+
+def test_regex_kwarg_removed_error_message() -> None:
+    with pytest.raises(PydanticUserError, match='`regex` is removed, use `pattern` instead'):
+
+        class Model(BaseModel):
+            a: str = Field(regex=r'^a')
