@@ -1375,13 +1375,6 @@ def validate_email(value: str) -> tuple[str, str]:
     if email_validator is None:
         import_email_validator()
 
-    if len(value) > MAX_EMAIL_LENGTH:
-        raise PydanticCustomError(
-            'value_error',
-            'value is not a valid email address: {reason}',
-            {'reason': f'Length must not exceed {MAX_EMAIL_LENGTH} characters'},
-        )
-
     # Carriage returns and line feeds are only allowed in a header field body as part of "folding"
     # (a CRLF immediately followed by whitespace), which is unfolded before the value is parsed
     # (see https://www.rfc-editor.org/info/rfc5322/#section-2.2). A `NameEmail` is a standalone value
