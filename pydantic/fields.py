@@ -1478,7 +1478,7 @@ def Field(  # noqa: C901
 
     regex = extra.pop('regex', None)  # type: ignore
     if regex is not None:
-        raise PydanticUserError('`regex` is removed. use `pattern` instead', code='removed-kwargs')
+        raise PydanticUserError('`regex` is removed, use `pattern` instead', code='removed-kwargs')
 
     if extra:
         warn(
