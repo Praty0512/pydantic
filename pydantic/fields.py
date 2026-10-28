@@ -1476,9 +1476,7 @@ def Field(  # noqa: C901
         if allow_mutation is False:
             frozen = True
 
-    regex = extra.pop('regex', None)  # type: ignore
-    if regex is not None:
-        raise PydanticUserError('`regex` is removed. use `pattern` instead', code='removed-kwargs')
+    extra.pop('regex', None)  # type: ignore
 
     if extra:
         warn(
